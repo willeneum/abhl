@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # match the action explicitly to try and render the view
   # Example: demo/hello will try to match the 'hello' view before the controller 'demo',
   #  else, go into 'demo' controller to find a view
-  match ':controller(/:action(/:id))', :via => :get
+  match ':controller(/:action(/:id))', :via => [:get, :post]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

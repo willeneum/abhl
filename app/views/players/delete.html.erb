@@ -1,0 +1,14 @@
+<%= link_to("<< Back to index", {:action => 'index'}, :class => 'back-link') %> 
+
+<div class = "delete player">
+	<h2>Delete Player</h2>
+
+	<%= form_for(:player, :url => {:action => 'destroy', :id => @player.id}) do |p| %>
+		<p>Are you sure you want to permanently delete player <%= @player.first_name %> <%=@player.last_name %> ? </p>
+
+		<div class = "player form buttons">
+			<%= submit_tag("Delete Player") %>
+		</div>
+
+	<% end %>
+</div>

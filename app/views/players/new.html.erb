@@ -1,0 +1,31 @@
+<%= link_to("<< Back to index", {:action => 'index'}, :class => 'back-link') %> 
+
+<div class = "new player">
+	<h2>Create Player</h2>
+
+	<%= form_for(:player, :url => {:action => 'create'}) do |p| %>
+		<table summary = "player form fields">
+				<tr>
+					<th>First Name</th>
+					<td><%= p.text_field(:first_name) %></td>
+				</tr>
+				<tr>
+					<th>Last Name</th>
+					<td><%= p.text_field(:last_name) %></td>
+				</tr>
+				<tr>
+					<th>Email</th>
+					<td><%= p.text_field(:email) %></td>
+				</tr>
+				<tr>
+					<th>Team</th>
+					<td><%= p.text_field(:team) %></td>
+				</tr>
+		</table>
+
+		<div class = "player form buttons">
+			<%= submit_tag("Create Player") %>
+		</div>
+
+	<% end %>
+</div>

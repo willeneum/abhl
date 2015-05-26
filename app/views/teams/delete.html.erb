@@ -1,0 +1,12 @@
+<%= link_to("<< Back to index", {:action => 'index'}, :class => 'back-link') %> 
+
+<div class = "delete team">
+	<h2>Delete Team</h2>
+
+		<p>Are you sure you want to permanently delete team <%= @team.name %> ? </p>
+
+		<div class = "team form buttons">
+			<%= submit_tag("Delete Team") %>
+		</div>
+
+</div>

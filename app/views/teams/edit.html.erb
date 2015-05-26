@@ -1,0 +1,27 @@
+<%= link_to("<< Back to index", {:action => 'index'}, :class => 'back-link') %> 
+
+<div class = "edit team">
+	<h2>Update Team</h2>
+
+	<%= form_for(:team, :url => {:action => 'update', :id => @team.id}) do |t| %>
+		<table summary = "team form fields">
+				<tr>
+					<th>Name</th>
+					<td><%= t.text_field(:name) %></td>
+				</tr>
+				<tr>
+					<th>Manager</th>
+					<td><%= t.text_field(:manager) %></td>
+				</tr>
+				<tr>
+					<th>Payroll</th>
+					<td><%= t.text_field(:payroll) %></td>
+				</tr>
+		</table>
+
+		<div class = "team form buttons">
+			<%= submit_tag("Update Team") %>
+		</div>
+
+	<% end %>
+</div>

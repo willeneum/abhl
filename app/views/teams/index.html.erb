@@ -1,0 +1,33 @@
+<% if !flash[:notice].blank? %>
+	<div><%= flash[:notice] %></div>
+<% end %>
+
+<div class = "Teams Index">
+	<h2>Teams</h2>
+
+	<%= link_to("Add new team", {:action => 'new'}, :class => "action new") %>
+
+	<table class="listing" summary="Team list">
+		<tr class="header">
+			<th>Name</th>
+			<th>Manager</th>
+			<th>Payroll</th>
+		</tr>
+
+		<% @teams.each do |t| %>
+			<tr>
+				<td><%= t.name %></td>
+				<td><%= t.manager %></td>
+				<td><%= t.payroll %></td>
+				<td class="actions">
+					<%= link_to("Show", {:action => 'show', :id => t.id}, :class => 'action show') %>
+					<%= link_to("Edit", {:action => 'edit', :id => t.id}, :class => 'action edit') %>
+					<%= link_to("Delete", {:action => 'delete', :id => t.id}, :class => 'action delete') %>
+				</td>
+			</tr>
+		<% end %>
+
+	</table>
+
+</div>
+

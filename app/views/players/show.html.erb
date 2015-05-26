@@ -1,0 +1,26 @@
+<% if !flash[:notice].blank? %>
+	<div><%= flash[:notice] %></div>
+<% end %>
+
+<%= link_to("<< Back to index", {:action => 'index'}, :class => 'back-link') %> 
+
+<div>
+	<table>
+			<tr>
+				<th>First Name</th>
+				<td><%= @player.first_name %></td>
+			</tr>
+			<tr>
+				<th>Last Name</th>
+				<td><%= @player.last_name %></td>
+			</tr>
+			<tr>
+				<th>Email</th>
+				<td><%= @player.email %></td>
+			</tr>
+			<tr>
+				<th>Team</th>
+				<td><%= @player.team %></td>
+			</tr>
+	</table>
+</div>

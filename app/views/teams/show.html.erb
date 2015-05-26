@@ -1,0 +1,22 @@
+<%= link_to("<< Back to index", {:action => 'index'}, :class => 'back-link') %> 
+
+<div class = "edit team">
+	<h2>Update Team</h2>
+
+
+	<table summary = "team show fields">
+			<tr>
+				<th>Name</th>
+				<td><%= @team.name %></td>
+			</tr>
+			<tr>
+				<th>Manager</th>
+				<td><%= @team.manager %></td>
+			</tr>
+			<tr>
+				<th>Payroll</th>
+				<td><%= @team.payroll %></td>
+			</tr>
+	</table>
+
+</div>
