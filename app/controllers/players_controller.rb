@@ -50,6 +50,7 @@ class PlayersController < ApplicationController
 	end
 
 
+	# private method calls
 	private
 		def player_params
 			# whitelisting attributes to be mass-assigned

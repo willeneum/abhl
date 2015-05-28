@@ -3,10 +3,14 @@
 <div class = "delete team">
 	<h2>Delete Team</h2>
 
-		<p>Are you sure you want to permanently delete team <%= @team.name %> ? </p>
+		<%= form_for(:team, :url => {:action => 'destroy', :id => @team.id}) do |t| %>
 
-		<div class = "team form buttons">
-			<%= submit_tag("Delete Team") %>
-		</div>
+			<p>Are you sure you want to permanently delete team <%= t.name %> ? </p>
+
+			<div class = "team form buttons">
+				<%= submit_tag("Delete Team") %>
+			</div>
+
+		<% end %>
 
 </div>

@@ -46,10 +46,12 @@ class TeamsController < ApplicationController
     redirect_to(:action => 'index')
   end
 
-private
-  def team_params
-    params.require(:team).permit(:name)
-  end
+
+  # private method calls
+  private
+    def team_params
+      params.require(:team).permit(:name, :manager, :payroll)
+    end
 
 end
 

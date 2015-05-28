@@ -1,2 +1,11 @@
 <h1>Games#delete</h1>
-<p>Are you sure you want to delete game <%=  %> ?</p>
+
+<%= form_for (:game, :url => {:action => 'destroy', :id => game.id}) do |f| %>
+
+	<p><%= game.home_team %> at <%= game.home_team %> @ <%= game.game_time %></p>
+
+	<p>Are you sure you want to delete this game?</p>
+
+	<%= f.submit "Delete Game", :disable_with => 'Deleting Game...' %>
+  
+<% end %>

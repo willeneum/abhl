@@ -44,11 +44,12 @@ class GamesController < ApplicationController
     game = Game.find(params[:id]).destroy
     redirect_to(:action => 'index')
   end
+  
 
-
-private
-  def game_params
-    params.require(@game).permit(:home_team, :away_team, :location, :game_time)
-  end
+  # private method calls
+  private
+    def game_params
+      params.require(:game).permit(:home_team, :away_team, :location, :game_time)
+    end
 
 end

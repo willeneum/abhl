@@ -1,2 +1,21 @@
-<h1>Games#show</h1>
-<p>Find me in app/views/games/show.html.erb</p>
+<%= link_to "back to index", :action => "index" %>
+
+<p>Game Details</p>
+<table>
+	<tr>
+		<th>Home Team</th>
+		<td><%= @game.home_team %></td>
+	</tr>
+	<tr>
+		<th>Away Team</th>
+		<td><%= @game.away_team %></td>
+	</tr>
+	<tr>
+		<th>Location</th>
+		<td><%= @game.location %></td>
+	</tr>
+	<tr>
+		<th>Time</th>
+		<td><%= @game.game_time %></td>
+	</tr>
+</table>
