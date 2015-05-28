@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+  layout "admin"
 
   def index
     @games = Game.all
@@ -44,7 +45,7 @@ class GamesController < ApplicationController
     game = Game.find(params[:id]).destroy
     redirect_to(:action => 'index')
   end
-  
+
 
   # private method calls
   private

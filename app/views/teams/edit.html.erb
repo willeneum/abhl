@@ -5,19 +5,7 @@
 
 	<%= form_for(:team, :url => {:action => 'update', :id => @team.id}) do |t| %>
 		<table summary = "team form fields">
-				<tr>
-					<th>Name</th>
-					<td><%= t.text_field(:name) %></td>
-				</tr>
-				<tr>
-					<th>Manager</th>
-					<td><%= t.text_field(:manager) %></td>
-				</tr>
-				<tr>
-					<th>Payroll</th>
-					<td><%= t.text_field(:payroll) %></td>
-				</tr>
-		</table>
+				<%= render(:partial => "form", :locals => {:f => t}) %>
 
 		<div class = "team form buttons">
 			<%= submit_tag("Update Team") %>

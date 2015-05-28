@@ -1,5 +1,5 @@
 class PlayersController < ApplicationController
-	layout false
+	layout "admin"
 
 	def index
 		@players = Player.sorted

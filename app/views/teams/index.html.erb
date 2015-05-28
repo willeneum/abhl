@@ -1,12 +1,9 @@
-<% if !flash[:notice].blank? %>
-	<div><%= flash[:notice] %></div>
-<% end %>
-
 <div class = "Teams Index">
 	<h2>Teams</h2>
 
 	<%= link_to("Add new team", {:action => 'new'}, :class => "action new") %>
 
+	<div><%= pluralize(@teams.size, 'team') %> found </div>
 	<table class="listing" summary="Team list">
 		<tr class="header">
 			<th>Name</th>
@@ -15,7 +12,8 @@
 		</tr>
 
 		<% @teams.each do |t| %>
-			<tr>
+			<!-- "cycle" text helper method enables us to utilize zebra striping on a large list -->
+			<tr class = "<%= cycle('odd', 'even') %>">
 				<td><%= t.name %></td>
 				<td><%= t.manager %></td>
 				<td><%= t.payroll %></td>
@@ -28,6 +26,4 @@
 		<% end %>
 
 	</table>
-
 </div>
-

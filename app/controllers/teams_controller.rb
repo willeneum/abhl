@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  layout false
+  layout "admin"
 
   def index
     @teams = Team.all
