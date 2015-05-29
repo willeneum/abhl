@@ -1,23 +1,6 @@
 <%= link_to "back to index", :action => "index" %>
 
-	<%= form_for (:game, :url => {:action => 'update', :id => @game.id}) do |f| %>
-		<table>
-			<tr>
-				<th>Home Team</th>
-				<td><%= f.text_field :home_team %></td>
-			</tr>
-			<tr>
-				<th>Away Team</th>
-				<td><%= f.text_field :away_team %></td>
-			</tr>
-			<tr>
-				<th>Location</th>
-				<td><%= f.text_field :location %></td>
-			</tr>
-			<tr>
-				<th>Time</th>
-				<td><%= f.text_field :game_time %></td>
-			</tr>
-		</table>
-	<%= f.submit "Submit", :disable_with => 'Submiting...' %>  
+	<%= form_for(:game, :url => {:action => 'update', :id => @game.id}) do |f| %>
+		<%= render(:partial => "form", :locals => {:f => f}) %>
+		<%= f.submit "Submit", :disable_with => 'Submiting...' %>  
 <% end %>

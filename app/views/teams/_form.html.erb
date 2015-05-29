@@ -1,14 +1,14 @@
 <table summary = "team form fields">
 		<tr>
-			<th>Name</th>
+			<th><%= f.label(:name) %></th>
 			<td><%= f.text_field(:name) %></td>
 		</tr>
 		<tr>
-			<th>Manager</th>
+			<th><%= f.label(:manager) %></th>
 			<td><%= f.text_field(:manager) %></td>
 		</tr>
 		<tr>
-			<th>Payroll</th>
-			<td><%= f.text_field(:payroll) %></td>
+			<th><%= f.label(:payroll) %></th>
+			<td>&#36;<%= f.text_field(:payroll) %></td>
 		</tr>
 </table>

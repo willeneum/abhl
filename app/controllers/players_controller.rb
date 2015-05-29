@@ -11,6 +11,7 @@ class PlayersController < ApplicationController
 
 	def new
 		@player = Player.new
+		@teams = Team.all
 	end
 
 	def create
@@ -20,6 +21,7 @@ class PlayersController < ApplicationController
 			flash[:notice] = "Player created successfully"
 			redirect_to(:action => 'index')
 		else
+			@teams = Team.all
 			render('new')
 		end
 	end
@@ -54,7 +56,7 @@ class PlayersController < ApplicationController
 	private
 		def player_params
 			# whitelisting attributes to be mass-assigned
-			params.require(:player).permit(:first_name, :last_name, :email)
+			params.require(:player).permit(:first_name, :last_name, :email, :team_id)
 		end
 
 

@@ -1,8 +1,8 @@
 <h1>Games#delete</h1>
 
-<%= form_for (:game, :url => {:action => 'destroy', :id => game.id}) do |f| %>
+<%= form_for(:game, :url => {:action => 'destroy', :id => @game.id}) do |f| %>
 
-	<p><%= game.home_team %> at <%= game.home_team %> @ <%= game.game_time %></p>
+	<p><%= @game.home_team %> at <%= @game.home_team %> @ <%= @game.game_time %></p>
 
 	<p>Are you sure you want to delete this game?</p>
 

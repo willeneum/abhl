@@ -31,7 +31,7 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
 
     if @team.update_attributes(team_params)
-      redirect_to(:action => 'show', id => @team.id)
+      redirect_to(:action => 'show', :id => @team.id)
     else
       render('edit')
     end

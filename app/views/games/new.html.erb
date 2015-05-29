@@ -1,24 +1,7 @@
 <%= link_to "back to index", :action => "index" %>
 
 <%= form_for(:game, :url => {:action => 'create'}) do |f| %>
-  <table>
-  	<tr>
-  		<th>Home Team</th>
-  		<td><%= f.text_field :home_team %></td>
-  	</tr>
-  	<tr>
-  		<th>Away Team</th>
-  		<td><%= f.text_field :away_team %></td>
-  	</tr>
-  	<tr>
-  		<th>Location</th>
-  		<td><%= f.text_field :location %></td>
-  	</tr>
-  	<tr>
-  		<th>Time</th>
-  		<td><%= f.text_field :game_time %></td>
-  	</tr>
-  </table>
-<% end %>
+  <%= render(:partial => "form", :locals => {:f => f}) %>
+  <%= submit_tag "Create Game"%>
 
-<%= submit_tag "Create Game"%>
+<% end %>

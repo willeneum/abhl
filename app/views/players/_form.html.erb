@@ -1,18 +1,18 @@
 <table summary = "player form fields">
 		<tr>
-			<th>First Name</th>
+			<th><%= f.label(:first_name, "First Name") %></th>
 			<td><%= f.text_field(:first_name) %></td>
 		</tr>
 		<tr>
-			<th>Last Name</th>
+			<th><%= f.label(:last_name) %></th>
 			<td><%= f.text_field(:last_name) %></td>
 		</tr>
 		<tr>
-			<th>Email</th>
+			<th><%= f.label(:email) %></th>
 			<td><%= f.text_field(:email) %></td>
 		</tr>
 		<tr>
-			<th>Team</th>
-			<td><%= f.text_field(:team) %></td>
+			<th><%= f.label(:team) %></th>
+			<td><%= f.select(:team_id, @teams.map {|p| [p.name, p.id]}) %></td>
 		</tr>
 </table>

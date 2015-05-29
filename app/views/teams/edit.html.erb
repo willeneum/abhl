@@ -4,8 +4,7 @@
 	<h2>Update Team</h2>
 
 	<%= form_for(:team, :url => {:action => 'update', :id => @team.id}) do |t| %>
-		<table summary = "team form fields">
-				<%= render(:partial => "form", :locals => {:f => t}) %>
+		<%= render(:partial => "form", :locals => {:f => t}) %>
 
 		<div class = "team form buttons">
 			<%= submit_tag("Update Team") %>

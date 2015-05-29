@@ -1,6 +1,7 @@
 <%= link_to("<< Back to index", {:action => 'index'}, :class => 'back-link') %> 
 
-<div>
+<div class = "show player">
+	<h2>Player Details</h2>
 	<table>
 			<tr>
 				<th>First Name</th>
@@ -16,6 +17,7 @@
 			</tr>
 			<tr>
 				<th>Team</th>
+				<!--<td><%= Team.find_by_id(@player.team_id).name %></td>-->
 				<td><%= @player.team %></td>
 			</tr>
 	</table>
