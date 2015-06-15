@@ -1,0 +1,13 @@
+<h2>Showing scoring stats for</h2>
+<% if @game.nil? %>
+	<p>This is an invalid game</p>
+<% else %>
+	<p><%= @game.home_team.name %> vs. <%= @game.away_team.name %> ID: <%= @game.id %></p>
+<% end %>
+
+<% if @stats.empty? %>
+	<p>There are no stats for this game.  Would you like to add stats?</p>
+<% else %>
+	<p>There are stats for this game that are not displayed.</p>
+	<%= @stats.game %>
+<% end %>

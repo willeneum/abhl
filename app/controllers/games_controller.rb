@@ -7,6 +7,8 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @scoring_stats = ScoringStat.where(:game_id => params[:id])
+    @penalty_stats = PenaltyStat.where(:game_id => params[:id])
   end
 
   def new
@@ -17,11 +19,12 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
 
-    if @game.home_team == @game.away_team
-      @teams = Team.all
-      flash[:notice] = "Home team and away team must be different"
-      render('new')
-    elsif @game.save
+    # if @game.home_team_id == @game.away_team_id
+    #   @teams = Team.all
+    #   flash[:notice] = "Home team and away team must be different"
+    #   render('new')
+    # els
+    if @game.save
       flash[:notice] = "Game saved successfully"
       redirect_to(:action => 'index')
     else
@@ -38,11 +41,12 @@ class GamesController < ApplicationController
   def update
     @game = Game.find(params[:id])
 
-    if @game.home_team == @game.away_team
-      @teams = Team.all
-      flash[:notice] = "Home team and away team must be different"
-      render('edit')
-    elsif @game.update_attributes(game_params)
+    # if @game.home_team_id == @game.away_team_id
+    #   @teams = Team.all
+    #   flash[:notice] = "Home team and away team must be different"
+    #   render('edit')
+    # els
+    if @game.update_attributes(game_params)
       redirect_to(:action => 'show', :id => @game.id)
     else
       render('edit')
@@ -62,7 +66,7 @@ class GamesController < ApplicationController
   # private method calls
   private
     def game_params
-      params.require(:game).permit(:home_team, :away_team, :location, :game_time)
+      params.require(:game).permit(:home_team_id, :away_team_id, :location, :game_time)
     end
 
 end

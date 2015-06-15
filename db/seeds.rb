@@ -24,6 +24,14 @@ Player.create(first_name: 'Dan', last_name: 'Mah', email: 'dmah@abhl.com')
 Player.create(first_name: 'Bern', last_name: 'Chu', email: 'bchu@abhl.com')
 
 
-Game.create(home_team: 1, away_team: 3);
-Game.create(home_team: 2, away_team: 4);
-Game.create(home_team: 6, away_team: 5);
+Game.create(home_team_id: 1, away_team_id: 3);
+Game.create(home_team_id: 2, away_team_id: 4);
+Game.create(home_team_id: 6, away_team_id: 5);
+
+
+Penalty.create(infraction: 'High-Sticking');
+Penalty.create(infraction: 'Tripping');
+Penalty.create(infraction: 'Hooking');
+Penalty.create(infraction: 'Delay of Game');
+Penalty.create(infraction: 'Holding');
+Penalty.create(infraction: 'Interference');

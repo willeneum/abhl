@@ -4,11 +4,11 @@
 <table>
 	<tr>
 		<th>Home Team</th>
-		<td><%= @game.home_team %></td>
+		<td><%= @game.home_team.name %></td>
 	</tr>
 	<tr>
 		<th>Away Team</th>
-		<td><%= @game.away_team %></td>
+		<td><%= @game.away_team.name %></td>
 	</tr>
 	<tr>
 		<th>Location</th>
@@ -17,5 +17,60 @@
 	<tr>
 		<th>Time</th>
 		<td><%= @game.game_time %></td>
+	</tr>
+</table>
+
+
+<table class = "stats">
+	<tr>
+		<td>
+			<table class = "scoring stats">
+				<tr>
+					<th>Scoring Details</th>
+				</tr>
+				<tr>
+					<th>Goal</th>
+					<th>Assist</th>
+					<th>Period</th>
+					<th>Time</th>
+				</tr>
+
+				<% @scoring_stats.each do |f| %>
+					<tr>
+						<td><%= f.scorer.first_name %> <%= f.scorer.last_name %> </td>
+						<td><%= f.passer.first_name %> <%= f.passer.last_name %> </td>
+						<td><%= f.period %></td>
+						<td><%= f.time %></td>
+					</tr>
+				<% end %>
+
+			</table>
+		</td>
+
+		<td>
+			<table class = "penalty stats">
+				<tr>
+					<th>Penalty Details</th>
+				</tr>
+				<tr>
+					<th>Player</th>
+					<th>Period</th>
+					<th>Time</th>
+				</tr>
+
+
+				<% @penalty_stats.each do |f| %>
+					<tr>
+						<td><%= f.player.first_name %> <%= f.player.last_name %> </td>
+					</tr>
+					<tr>
+						<td><%= f.period %></td>
+					</tr>
+					<tr>
+						<td><%= f.time %></td>
+					</tr>
+				<% end %>
+			</table>
+		</td>
 	</tr>
 </table>

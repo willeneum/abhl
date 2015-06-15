@@ -1,0 +1,10 @@
+<h2>Showing scoring stats for</h2>
+<% if @game.nil? %>
+	<p>This is an invalid game</p>
+<% end %>
+
+<% if @stats.nil? %>
+	<p>There are no stats for this game.  Would you like to add stats?</p>
+<% else %>
+	<p>There are stats for this game that are not displayed.</p>
+<% end %>

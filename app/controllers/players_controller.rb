@@ -28,6 +28,7 @@ class PlayersController < ApplicationController
 
 	def edit
 		@player = Player.find(params[:id])
+		@teams = Team.all
 	end
 
 	def update

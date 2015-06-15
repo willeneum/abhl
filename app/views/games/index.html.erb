@@ -17,8 +17,8 @@
 	<% @games.each do |g| %>
 		<tr>
 			<td><%= g.id %></td>
-			<td><%= g.home_team %></td>
-			<td><%= g.away_team %></td>
+			<td><%= g.home_team.name %></td>
+			<td><%= g.away_team.name %></td>
 			<td><%= g.location %></td>
 			<td><%= g.game_time %></td>
 			<td><%= g.home_score %></td>

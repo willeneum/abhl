@@ -17,8 +17,7 @@
 			</tr>
 			<tr>
 				<th>Team</th>
-				<!--<td><%= Team.find_by_id(@player.team_id).name %></td>-->
-				<td><%= @player.team %></td>
+				<td><%= @player.team.name if !@player.team.nil? %></td>
 			</tr>
 	</table>
 </div>

@@ -1,8 +1,8 @@
 class CreateGames < ActiveRecord::Migration
   def up
     create_table :games do |t|
-    	t.integer "home_team"
-    	t.integer "away_team"
+    	t.integer "home_team_id", :class_name => "team"
+    	t.integer "away_team_id", :class_name => "team"
       
     	t.string "location"
     	t.datetime "game_time"
@@ -23,9 +23,6 @@ class CreateGames < ActiveRecord::Migration
       t.timestamps
     end
 
-    #add_index :games, ["home_team_id", "away_team_id"]
-    #add_index :games, "home_team_id"
-    #add_index :games, "away_team_id"
   end
 
   def down

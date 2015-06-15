@@ -11,24 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150405223911) do
-
-  create_table "game_player_stats", force: :cascade do |t|
-    t.integer  "player_id",  limit: 4
-    t.integer  "game_id",    limit: 4
-    t.integer  "goals",      limit: 4
-    t.integer  "assists",    limit: 4
-    t.integer  "points",     limit: 4
-    t.integer  "pims",       limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
-  add_index "game_player_stats", ["game_id", "player_id"], name: "index_game_player_stats_on_game_id_and_player_id", using: :btree
+ActiveRecord::Schema.define(version: 20150603211107) do
 
   create_table "games", force: :cascade do |t|
-    t.integer  "home_team",        limit: 4
-    t.integer  "away_team",        limit: 4
+    t.integer  "home_team_id",     limit: 4
+    t.integer  "away_team_id",     limit: 4
     t.string   "location",         limit: 255
     t.datetime "game_time"
     t.integer  "home_score",       limit: 4
@@ -47,6 +34,22 @@ ActiveRecord::Schema.define(version: 20150405223911) do
     t.datetime "updated_at"
   end
 
+  create_table "penalties", force: :cascade do |t|
+    t.string   "infraction", limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "penalty_stats", force: :cascade do |t|
+    t.integer  "game_id",    limit: 4
+    t.integer  "player_id",  limit: 4
+    t.integer  "penalty_id", limit: 4
+    t.integer  "period",     limit: 4
+    t.time     "time"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
   create_table "players", force: :cascade do |t|
     t.integer  "team_id",    limit: 4
     t.string   "first_name", limit: 25
@@ -61,6 +64,16 @@ ActiveRecord::Schema.define(version: 20150405223911) do
   end
 
   add_index "players", ["team_id"], name: "index_players_on_team_id", using: :btree
+
+  create_table "scoring_stats", force: :cascade do |t|
+    t.integer  "game_id",    limit: 4
+    t.integer  "scorer_id",  limit: 4
+    t.integer  "passer_id",  limit: 4
+    t.integer  "period",     limit: 4
+    t.time     "time"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "teams", force: :cascade do |t|
     t.string   "name",       limit: 50

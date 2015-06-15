@@ -3,7 +3,6 @@
 <div class = "show team">
 	<h2>Team Details</h2>
 
-
 	<table summary = "team show fields">
 			<tr>
 				<th>Name</th>
@@ -17,6 +16,23 @@
 				<th>Payroll</th>
 				<td><%= @team.payroll %></td>
 			</tr>
+	</table>
+
+	<h2>Players</h2>
+	<table summary = "team players">
+		<tr class="player headers">
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Email</th>
+		</tr>
+
+		<% @players.each do |p| %>
+			<tr>
+				<td><%= p.first_name %></td>
+				<td><%= p.last_name %></td>
+				<td><%= p.email %></td>
+			</tr>
+		<% end %>
 	</table>
 
 </div>

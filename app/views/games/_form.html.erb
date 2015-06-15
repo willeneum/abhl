@@ -1,18 +1,20 @@
+<%= error_messages_for(@game) %>
+
 <table>
 	<tr>
 		<th>Home Team</th>
-		<td><%= f.select(:home_team, @teams.map {|p| [p.name]}) %></td>
+		<td><%= f.select(:home_team_id, @teams.map {|p| [p.name, p.id]}) %></td>
 	</tr>
 	<tr>
 		<th>Away Team</th>
-		<td><%= f.select(:away_team, @teams.map {|p| [p.name]}) %></td>
+		<td><%= f.select(:away_team_id, @teams.map {|p| [p.name, p.id]}) %></td>
 	</tr>
 	<tr>
 		<th>Location</th>
 		<td><%= f.text_field :location %></td>
 	</tr>
 	<tr>
-		<th>Time</th>
-		<td><%= f.text_field :game_time %></td>
+		<th><%= f.label(:game_time, "Game Time") %></f></th>
+		<td><%= f.datetime_select(:game_time, :minute_step => 5) %></td>
 	</tr>
 </table>
