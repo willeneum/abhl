@@ -13,7 +13,7 @@ class Game < ActiveRecord::Base
 
 	def unique_opponent
 		if home_team_id == away_team_id
-			errors.add(:base, "Teams cannot play against themselves")
+			errors.add(:home_team, "Teams cannot play against themselves")
 		end
 	end
 

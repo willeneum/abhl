@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603211107) do
+ActiveRecord::Schema.define(version: 20150622224008) do
 
   create_table "games", force: :cascade do |t|
     t.integer  "home_team_id",     limit: 4
@@ -51,16 +51,16 @@ ActiveRecord::Schema.define(version: 20150603211107) do
   end
 
   create_table "players", force: :cascade do |t|
-    t.integer  "team_id",    limit: 4
-    t.string   "first_name", limit: 25
-    t.string   "last_name",  limit: 50
-    t.string   "email",      limit: 255,                 null: false
-    t.string   "hashed_pw",  limit: 40
-    t.string   "cell",       limit: 255
-    t.integer  "salary",     limit: 4
-    t.boolean  "admin",      limit: 1,   default: false
+    t.integer  "team_id",         limit: 4
+    t.string   "first_name",      limit: 25
+    t.string   "last_name",       limit: 50
+    t.string   "email",           limit: 255,                 null: false
+    t.string   "cell",            limit: 255
+    t.integer  "salary",          limit: 4
+    t.boolean  "admin",           limit: 1,   default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_digest", limit: 255
   end
 
   add_index "players", ["team_id"], name: "index_players_on_team_id", using: :btree
