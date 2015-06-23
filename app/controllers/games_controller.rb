@@ -1,6 +1,8 @@
 class GamesController < ApplicationController
   layout "admin"
 
+  before_action :confirm_logged_in
+
   def index
     @games = Game.all
   end

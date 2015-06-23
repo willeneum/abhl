@@ -1,5 +1,6 @@
 class PlayersController < ApplicationController
 	layout "admin"
+	before_action :confirm_logged_in
 
 	def index
 		@players = Player.sorted

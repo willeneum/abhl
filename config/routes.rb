@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'demo#index'
 
+  get 'players/show/:id', :to => 'access#index'
+
   # match the action explicitly to try and render the view
   # Example: demo/hello will try to match the 'hello' view before the controller 'demo',
   #  else, go into 'demo' controller to find a view
