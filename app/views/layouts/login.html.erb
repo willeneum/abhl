@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>ABHL | <%= @page_title %> Page</title>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	</head>
+	<body>
+
+		<div id="main-container" class="container">
+
+			<div class="row">
+				<div id="messages">
+					<% if !flash[:notice].blank? %>
+						<div><%= flash[:notice] %></div>
+					<% end %>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="logo">
+					<%= image_tag("logo.jpg", height:'200', width:'300') %>
+				</div>
+			</div>
+
+			<div class="row">
+				<div id="content">
+					<%= yield %>
+				</div>
+			</div>
+
+		</div>
+
+		
+
+		<div id="footer">
+			<p id="copyright">&copy; willeneum labs</p>
+		</div>
+
+	</body>
+</html>
