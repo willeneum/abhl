@@ -8,11 +8,21 @@ class ApplicationController < ActionController::Base
 private
   def confirm_logged_in
     unless session[:player_id]
-      flash[:notice] = "Please log in"
-      redirect_to(:controller => 'access', :action => 'login')
+      flash[:warning] = "Please log in"
+      redirect_to(:back)
       return false
     else
       return true
+    end
+  end
+
+  def confirm_admin
+    if session[:player_id] && Player.find(session[:player_id]).admin
+      return true
+    else
+      flash[:danger] = "You do not have admin priviledges for that request"
+      redirect_to(:back)
+      return false
     end
   end
 end

@@ -1,5 +1,5 @@
 class AccessController < ApplicationController
-  layout "admin"
+  layout "login"
 
   before_action :confirm_logged_in, :except => [:login, :attempt_login, :logout]
 
@@ -20,23 +20,23 @@ class AccessController < ApplicationController
         session[:player_id] = authorized_player.id
         session[:player_email] = authorized_player.email
 
-        flash[:notice] = "You are now logged in"
-        redirect_to(:action => 'index')
+        flash[:success] = "You are now logged in"
+        redirect_to(:controller => 'players', :action => 'show', :id => session[:player_id])
       else
-        flash[:notice] = "Invalid email/password combination"
-        redirect_to(:action => 'login')
+        flash[:danger] = "Invalid email/password combination"
+        redirect_to(:back)
       end
     else
-      flash[:notice] = "Email and/or password cannot be blank"
-      redirect_to(:action => 'login')
+      flash[:danger] = "Email and/or password cannot be blank"
+      redirect_to(:back)
     end
   end
 
   def logout
     session[:player_id] = nil
     session[:player_email] = nil
-  	flash[:notice] = "You are now logged out"
-    redirect_to(:action => 'login')
+  	flash[:success] = "You are now logged out"
+    redirect_to(:back)
   end
 
 

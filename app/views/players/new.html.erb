@@ -1,4 +1,9 @@
-<%= link_to("<< Back to index", {:action => 'index'}, :class => 'back-link') %> 
+<ul class="nav nav-tabs" role="tablist">
+  <li><%= link_to 'View players', :action => 'index' %></li>
+  <li class="active"><%= link_to 'New Player', :action => 'new' %></li>
+</ul>
+
+<%= link_to("<< Back to index", {:action => 'index'}, :class => 'back-link') %>
 
 <div class = "new player">
 	<h2>Create Player</h2>

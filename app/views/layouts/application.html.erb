@@ -1,14 +1,52 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	  <title>ABHL</title>
-	  <!-- <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %> -->
-	  <!-- <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %> -->
-	  <!-- <%= csrf_meta_tags %> -->
+	  <title>ABHL | <%= @page_title %> Page</title>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
 	</head>
 	<body>
+		<%= render 'navigation/navbar' %>
 
-		<%= yield %>
+		<div id="main-container" class="container">
+
+			<!-- <div class="row">
+				<div id="messages">
+					<% if !flash[:notice].blank? %>
+						<div><%= flash[:notice] %></div>
+					<% end %>
+				</div>
+			</div> -->
+
+			<div class="row">
+        <div class="col-xs-12">
+          <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+          <% end %>
+        </div>
+      </div>
+
+			<div class="row">
+				<div class="col-xs-9">
+					<div id="content">
+						<%= yield %>
+					</div>
+				</div>
+				<div class="col-xs-3">
+					<h3>Right side links</h3>
+				</div>
+			</div>
+
+
+
+		<div class="row" id="footer">
+			<div class="col-xs-9">
+				&copy; willeneum labs
+			</div>
+		</div>
+
+	</div>
 
 	</body>
 </html>

@@ -4,7 +4,6 @@
 <!-- Display all existing games -->
 <table>
 	<tr>
-		<th>Game ID</th>
 		<th>Home Team</th>
 		<th>Away Team</th>
 		<th>Location</th>
@@ -16,7 +15,6 @@
 
 	<% @games.each do |g| %>
 		<tr>
-			<td><%= g.id %></td>
 			<td><%= g.home_team.name %></td>
 			<td><%= g.away_team.name %></td>
 			<td><%= g.location %></td>

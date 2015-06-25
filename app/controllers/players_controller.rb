@@ -1,9 +1,17 @@
 class PlayersController < ApplicationController
-	layout "admin"
-	before_action :confirm_logged_in
+	layout "application"
+
+	#before_action :confirm_logged_in
+	before_action :confirm_admin, :only => [:new, :edit, :create, :update, :delete]
 
 	def index
 		@players = Player.sorted
+		if session[:player_id]
+			@admin_level = Player.find(session[:player_id]).admin
+		else
+			@admin_level = false
+		end
+
 	end
 
 	def show
@@ -19,10 +27,11 @@ class PlayersController < ApplicationController
 		@player = Player.new(player_params)
 
 		if @player.save
-			flash[:notice] = "Player created successfully"
+			flash[:success] = "Player created successfully"
 			redirect_to(:action => 'index')
 		else
 			@teams = Team.all
+			flash[:danger] = "Player not created"
 			render('new')
 		end
 	end
@@ -36,9 +45,10 @@ class PlayersController < ApplicationController
 		@player = Player.find(params[:id])
 
 		if @player.update_attributes(player_params)
-			flash[:notice] = "Player updated successfully"
+			flash[:success] = "Player updated successfully"
 			redirect_to(:action => 'show', :id => @player.id)
 		else
+			flash[:danger] = "Player not updated"
 			render('edit')
 		end
 	end
@@ -49,7 +59,7 @@ class PlayersController < ApplicationController
 
 	def destroy
 		player = Player.find(params[:id]).destroy
-		flash[:notice] = "Player '#{player.first_name} #{player.last_name}' deleted successfully"
+		flash[:success] = "Player '#{player.first_name} #{player.last_name}' deleted successfully"
 		redirect_to(:action => 'index')
 	end
 
@@ -58,7 +68,7 @@ class PlayersController < ApplicationController
 	private
 		def player_params
 			# whitelisting attributes to be mass-assigned
-			params.require(:player).permit(:first_name, :last_name, :email, :team_id)
+			params.require(:player).permit(:first_name, :last_name, :email, :team_id, :admin)
 		end
 
 

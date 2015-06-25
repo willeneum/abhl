@@ -4,20 +4,21 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'demo#index'
-
-  get 'players/show/:id', :to => 'access#index'
+  root 'posts#index'
 
   # match the action explicitly to try and render the view
   # Example: demo/hello will try to match the 'hello' view before the controller 'demo',
   #  else, go into 'demo' controller to find a view
-  match ':controller(/:action(/:id))', :via => [:get, :post]
+  match '/:controller(/:action(/:id))', :via => [:get, :post]
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+
+
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

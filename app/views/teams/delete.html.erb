@@ -1,16 +1,16 @@
-<%= link_to("<< Back to index", {:action => 'index'}, :class => 'back-link') %> 
+<%= link_to("<< Back to index", {:action => 'index'}, :class => 'back-link') %>
 
 <div class = "delete team">
 	<h2>Delete Team</h2>
 
-		<%= form_for(:team, :url => {:action => 'destroy', :id => @team.id}) do |t| %>
+	<%= form_for(:team, :url => {:action => 'destroy', :id => @team.id}) do |t|%>
 
-			<p>Are you sure you want to permanently delete team <%= t.name %> ? </p>
+		<p>Are you sure you want to permanently delete team <%= @team.name %> ? </p>
 
-			<div class = "team form buttons">
-				<%= submit_tag("Delete Team") %>
-			</div>
+		<div class = "team form buttons">
+			<%= submit_tag("Delete Team") %>
+		</div>
 
-		<% end %>
+	<% end %>
 
 </div>

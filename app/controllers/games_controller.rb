@@ -1,7 +1,8 @@
 class GamesController < ApplicationController
-  layout "admin"
+  layout "application"
 
-  before_action :confirm_logged_in
+  #before_action :confirm_logged_in
+  before_action :confirm_admin, :only => [:edit, :create, :update, :delete]
 
   def index
     @games = Game.all
@@ -16,18 +17,13 @@ class GamesController < ApplicationController
   def new
     @game = Game.new
     @teams = Team.all
-  end  
+  end
 
   def create
     @game = Game.new(game_params)
 
-    # if @game.home_team_id == @game.away_team_id
-    #   @teams = Team.all
-    #   flash[:notice] = "Home team and away team must be different"
-    #   render('new')
-    # els
     if @game.save
-      flash[:notice] = "Game saved successfully"
+      flash[:success] = "Game saved successfully"
       redirect_to(:action => 'index')
     else
       @teams = Team.all
@@ -43,11 +39,6 @@ class GamesController < ApplicationController
   def update
     @game = Game.find(params[:id])
 
-    # if @game.home_team_id == @game.away_team_id
-    #   @teams = Team.all
-    #   flash[:notice] = "Home team and away team must be different"
-    #   render('edit')
-    # els
     if @game.update_attributes(game_params)
       redirect_to(:action => 'show', :id => @game.id)
     else
@@ -61,6 +52,7 @@ class GamesController < ApplicationController
 
   def destroy
     @game = Game.find(params[:id]).destroy
+    flash[:success] = "Game deleted successfully"
     redirect_to(:action => 'index')
   end
 

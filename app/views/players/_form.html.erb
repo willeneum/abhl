@@ -17,4 +17,8 @@
 			<th><%= f.label(:team) %></th>
 			<td><%= f.select(:team_id, @teams.map {|p| [p.name, p.id]}) %></td>
 		</tr>
+		<tr>
+			<th><%= f.label(:admin) %></th>
+			<td><%= f.check_box(:admin) %></td>
+		</tr>
 </table>

@@ -1,28 +1,36 @@
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active"><%= link_to 'View players', :action => 'index' %></li>
+  <li><%= link_to 'New Players', :action => 'new' %></li>
+</ul>
+
 <div class = "Players Index">
 	<h2>Players</h2>
+	<% if @admin_level %>
+		<%= link_to("Add new player", {:action => 'new'}, :class => "action new") %>
+	<% end %>
 
-	<%= link_to("Add new player", {:action => 'new'}, :class => "action new") %>
-
-	<table class="listing" summary="Player list">
+	<table class="table table-striped table-bordered table-hover" summary="Player list">
 		<tr class="header">
-			<th>First Name</th>
-			<th>Last Name</th>
+			<th>Name</th>
 			<th>Email</th>
 			<th>Team</th>
-			<th>Actions</th>
+			<% if @admin_level %>
+				<th>Actions</th>
+			<% end %>
 		</tr>
 
 		<% @players.each do |p| %>
 			<tr>
-				<td><%= p.first_name %></td>
-				<td><%= p.last_name %></td>
+				<td><%= link_to(p.first_name + " " + p.last_name , {:action => 'show', :id => p.id}) %></td>
 				<td><%= p.email %></td>
 				<td><%= p.team.name if !p.team.nil? %></td>
-				<td class="actions">
-					<%= link_to("Show", {:action => 'show', :id => p.id}, :class => 'action show') %>
-					<%= link_to("Edit", {:action => 'edit', :id => p.id}, :class => 'action edit') %>
-					<%= link_to("Delete", {:action => 'delete', :id => p.id}, :class => 'action delete') %>
-				</td>
+				<% if @admin_level %>
+					<td class="actions">
+						<%= link_to("Edit", {:action => 'edit', :id => p.id}, :class => 'btn btn-info btn-xs') %>
+						<%= link_to("Delete", {:action => 'delete', :id => p.id}, :class => 'btn btn-info btn-xs') %>
+					</td>
+				<% end %>
+
 			</tr>
 		<% end %>
 
