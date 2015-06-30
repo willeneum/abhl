@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150622224008) do
+ActiveRecord::Schema.define(version: 20150629215719) do
 
   create_table "games", force: :cascade do |t|
     t.integer  "home_team_id",     limit: 4
@@ -64,6 +64,14 @@ ActiveRecord::Schema.define(version: 20150622224008) do
   end
 
   add_index "players", ["team_id"], name: "index_players_on_team_id", using: :btree
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "topic",      limit: 255
+    t.text     "desc",       limit: 65535
+    t.string   "author",     limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "scoring_stats", force: :cascade do |t|
     t.integer  "game_id",    limit: 4

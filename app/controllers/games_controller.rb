@@ -3,6 +3,9 @@ class GamesController < ApplicationController
 
   #before_action :confirm_logged_in
   before_action :confirm_admin, :only => [:edit, :create, :update, :delete]
+  #after_destroy :delete_game_scoring_stats, :delete_game_penalty_stats
+
+
 
   def index
     @games = Game.all
@@ -61,6 +64,18 @@ class GamesController < ApplicationController
   private
     def game_params
       params.require(:game).permit(:home_team_id, :away_team_id, :location, :game_time)
+    end
+
+    def delete_game_scoring_stats
+      self.scoring_stats.each do |score|
+        #score.destroy
+      end
+    end
+
+    def delete_game_penalty_stats
+      self.penalty_stats.each do |penalty|
+        #penalty.destroy
+      end
     end
 
 end

@@ -1,7 +1,7 @@
 class Game < ActiveRecord::Base
 
-	has_many :scoring_stats
-	has_many :penalty_stats
+	has_many :scoring_stats, :dependent => :destroy
+	has_many :penalty_stats, :dependent => :destroy
 	has_many :players, :through => :game_player_stats
 
 	belongs_to :home_team, :class_name => "Team", :foreign_key => :home_team_id

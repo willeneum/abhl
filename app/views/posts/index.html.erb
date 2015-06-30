@@ -1,2 +1,32 @@
 <h1>News</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+
+
+
+<br>
+
+	<%= link_to new_post_path, remote: true do %>
+		<button class="btn btn-default">New Post</button>
+	<% end %>
+
+<div id="post-form" style="display:none"></div>
+
+<br>
+
+<% if @posts.empty? %>
+	There are no posts yet...
+<% else %>
+	<div id="post-list">
+		<%= render 'index' %>
+	</div>
+
+	<!--
+	<% @posts.each do |p| %>
+		<h2><%= p.topic %></h2>
+		<table class="table table-bordered">
+			<tr><td><%= p.desc %></td></tr>
+		</table>
+		<p class="text-right">Post by <%= p.author %></p>
+
+
+	<% end %>-->
+<% end %>

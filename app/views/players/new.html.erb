@@ -9,6 +9,8 @@
 	<h2>Create Player</h2>
 
 	<%= form_for(:player, :url => {:action => 'create'}) do |p| %>
+
+		<!-- <%= render(:partial => "form", :locals => {:partial_var => current_var}) %>  -->
 		<%= render(:partial => "form", :locals => {:f => p}) %>
 
 		<div class = "player form buttons">

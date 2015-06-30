@@ -1,0 +1,8 @@
+
+	<% @posts.each do |p| %>
+		<h2><%= p.topic %></h2>
+		<table class="table table-bordered">
+			<tr><td><%= p.desc %></td></tr>
+		</table>
+		<p class="text-right">Post by <%= p.author %></p>
+	<% end %>

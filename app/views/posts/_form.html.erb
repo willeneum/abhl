@@ -1,0 +1,24 @@
+<%= form_for @post, remote: true do |f| %>
+	<div class='modal-body'>
+
+		<div class='control-group'>
+			<%= f.label :topic, class:'control-label' %>
+			<div class="controls">
+				<%= f.text_field :topic %>
+			</div>
+		</div>
+
+		<div class='control-group'>
+			<%= f.label :desc, class:'control-label' %>
+			<div class="controls">
+				<%= f.text_area :desc  %>
+			</div>
+		</div>
+	</div>
+
+	<div class="model-footer">
+		<%= f.button :submit %>
+		<%= link_to "Cancel", '#', class: 'btn' %>
+	</div>
+
+<% end %>

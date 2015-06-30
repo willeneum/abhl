@@ -1,0 +1,6 @@
+$('#post-list').html("<%= escape_javascript(render 'index') %>");
+$('#post-form').slideUp(350);
+
+<% flash.each do |name, msg| %>
+  $('#alert alert-#{name}').html("<%= content_tag :div, msg, class: 'alert alert-#{name}' %>");
+<% end %>
