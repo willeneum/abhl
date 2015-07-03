@@ -8,13 +8,12 @@
 <div class = "new player">
 	<h2>Create Player</h2>
 
-	<%= form_for(:player, :url => {:action => 'create'}) do |p| %>
+	<%= form_for(@player) do |p| %>
 
-		<!-- <%= render(:partial => "form", :locals => {:partial_var => current_var}) %>  -->
 		<%= render(:partial => "form", :locals => {:f => p}) %>
 
 		<div class = "player form buttons">
-			<%= submit_tag("Create Player") %>
+			<%= link_to("Create Player", players_path, class:'btn btn-xs btn-info') %>
 		</div>
 
 	<% end %>

@@ -13,7 +13,7 @@ class TeamsController < ApplicationController
   end
 
   def show
-    @team = Team.find(params[:id])
+    @team = Team.friendly.find(params[:id])
     @players = Player.where(:team_id => params[:id])
   end
 
@@ -30,11 +30,11 @@ class TeamsController < ApplicationController
   end
 
   def edit
-    @team = Team.find(params[:id])
+    @team = Team.friendly.find(params[:id])
   end
 
   def update
-    @team = Team.find(params[:id])
+    @team = Team.friendly.find(params[:id])
 
     if @team.update_attributes(team_params)
       redirect_to(:action => 'show', :id => @team.id)
@@ -44,11 +44,11 @@ class TeamsController < ApplicationController
   end
 
   def delete
-    @team = Team.find(params[:id])
+    @team = Team.friendly.find(params[:id])
   end
 
   def destroy
-    team = Team.find(params[:id]).destroy
+    team = Team.friendly.find(params[:id]).destroy
     redirect_to(:action => 'index')
   end
 

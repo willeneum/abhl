@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
 
-  #-----------------------------------------------------------------------------
-  # |_URL_____________________|_HTTP_Verb_|_Action__|_Desciption_________________
-  # | /controllers            | GET       | index   | show all items
-  # | /controllers/new        | GET       | new     | show new form
-  # | /controllers            | POST      | create  | create an item
-  # | /controllers/:id        | GET       | show    | show item with :id
-  # | /controllers/:id/edit   | GET       | edit    | show edit from for item with :id
-  # | /controllers/:id        | PATCH     | update  | update item with :id
-  # | /controllers/:id/delete | GET       | delete  | show delete form for item with :id
-  # | /controllers/:id        | DELETE    | destroy | delete item with :id
-  #------------------------------------------------------------------------------
+  #-------------------------------------------------------------------------------------------------------------
+  # |_URL__________________|_HTTP_Verb_|_Action__|_URL_Helper_______________|_Desciption_________________
+  # | /products            | GET       | index   | products_path            | show all items
+  # | /products/new        | GET       | new     | new_product_path         | show new form
+  # | /products            | POST      | create  | products_path            | create an item
+  # | /products/:id        | GET       | show    | product_path(:id)        | show item with :id
+  # | /products/:id/edit   | GET       | edit    | edit_product_path(:id)   | show edit from for item with :id
+  # | /products/:id        | PATCH     | update  | product_path(:id)        | update item with :id
+  # | /products/:id/delete | GET       | delete  | delete_product_path(:id) | show delete form for item with :id
+  # | /products/:id        | DELETE    | destroy | product_path(:id)        | delete item with :id
+  #---------------------------------------------------------------------------------------------------------------
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   #  else, go into 'demo' controller to find a view
 
   #match '/:controller(/:action(/:id))', :via => [:get, :post]
+
+  get 'new_post_cancel', :to => 'posts#cancel'
 
   resources :posts do
     member do

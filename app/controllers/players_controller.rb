@@ -5,9 +5,9 @@ class PlayersController < ApplicationController
 	before_action :confirm_admin, :only => [:new, :edit, :create, :update, :delete]
 
 	def index
-		@players = Player.sorted
+		@players = Player.friendly.sorted
 		if session[:player_id]
-			@admin_level = Player.find(session[:player_id]).admin
+			@admin_level = Player.friendly.find(session[:player_id]).admin
 		else
 			@admin_level = false
 		end
@@ -15,7 +15,7 @@ class PlayersController < ApplicationController
 	end
 
 	def show
-		@player = Player.find(params[:id])
+		@player = Player.friendly.find(params[:id])
 	end
 
 	def new
@@ -37,12 +37,12 @@ class PlayersController < ApplicationController
 	end
 
 	def edit
-		@player = Player.find(params[:id])
+		@player = Player.friendly.find(params[:id])
 		@teams = Team.all
 	end
 
 	def update
-		@player = Player.find(params[:id])
+		@player = Player.friendly.find(params[:id])
 
 		if @player.update_attributes(player_params)
 			flash[:success] = "Player updated successfully"

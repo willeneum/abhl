@@ -1,4 +1,7 @@
 class Player < ActiveRecord::Base
+	extend FriendlyId
+	friendly_id :full_name, :use => :slugged
+
 
 	has_secure_password
 
@@ -23,4 +26,9 @@ class Player < ActiveRecord::Base
 	scope :sorted, lambda { order("players.first_name ASC") }
 	scope :search, lambda {|query| where (["first_name LIKE ?", "%#{query}%"] or ["last_name LIKE ?", "%#{query}%"])}
 
+
+
+	def full_name
+		"#{first_name}-#{last_name}"
+	end
 end

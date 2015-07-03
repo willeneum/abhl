@@ -14,6 +14,9 @@ gem 'sass-rails', '~> 5.0'
 # Use Bootstrap for CSS
 gem 'bootstrap-sass', '~> 3.3.5'
 
+# font-awesome
+gem 'font-awesome-rails', '~> 4.3.0.0'
+
 # Adds proper vendor prefixes to your CSS code when it is compiled
 gem 'autoprefixer-rails'
 
@@ -24,6 +27,12 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 
 gem 'responders', '~> 2.0'
+
+# create pages for results/displays
+gem 'will_paginate', '~> 3.0.7'
+
+# create pretty URLs and work with human-friendly strings; slugging and permalink plugins for Active Record
+gem 'friendly_id', '~> 5.1.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -64,5 +73,11 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # Retrieve the binding of a method's caller
+	gem 'binding_of_caller', '~> 0.7.2'
+
+	# Provides a better error page for Rails and other Rack apps
+	gem 'better_errors', '~> 2.1.1'
 end
 

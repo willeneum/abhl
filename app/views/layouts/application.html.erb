@@ -21,9 +21,10 @@
 
 			<div class="row">
         <div class="col-xs-12" id='flash-status'>
-          <% flash.each do |name, msg| %>
+<!--           <% flash.each do |name, msg| %>
             <%= content_tag :div, msg, class: "alert alert-#{name}" %>
-          <% end %>
+          <% end %> -->
+          <%= render '/application/flash_messages' %>
         </div>
       </div>
 

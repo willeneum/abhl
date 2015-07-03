@@ -1,6 +1,5 @@
-$('#post-list').html("<%= escape_javascript(render 'index') %>");
 $('#post-form').slideUp(350);
+$('#post-list').html("<%= escape_javascript(render 'index') %>");
 
-<% flash.each do |name, msg| %>
-  $('#alert alert-#{name}').html("<%= content_tag :div, msg, class: 'alert alert-#{name}' %>");
-<% end %>
+
+$('#flash-status').html("<%= escape_javascript(render '/application/flash_messages') %>");

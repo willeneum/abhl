@@ -17,8 +17,8 @@
 	</div>
 
 	<div class="model-footer">
-		<%= f.button :submit %>
-		<%= link_to "Cancel", '#', class: 'btn' %>
+		<%= f.button "Post", class: 'btn btn-xs btn-info', data:{disable_with:"<i class='fa fa-spinner fa-spin'></i>Posting..."}, remote:true %>
+		<%= link_to "Cancel", 'new_post_cancel', remote: true, class: 'btn' %>
 	</div>
 
 <% end %>

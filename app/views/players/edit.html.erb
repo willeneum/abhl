@@ -1,14 +1,14 @@
-<%= link_to("<< Back to index", {:action => 'index'}, :class => 'back-link') %> 
+<%= link_to("<< Back to index", players_path, :class => 'back-link') %>
 
 <div class = "edit player">
 	<h2>Update Player</h2>
 
-	<%= form_for(:player, :url => {:action => 'update', :id => @player.id}) do |p| %>
+	<%= form_for(@player) do |p| %>
 		<%= render(:partial => "form", :locals => {:f => p}) %>
 
 		<div class = "player form buttons">
-			<%= submit_tag("Update Player") %>
+			<%= link_to("Update Player", player_path(@player.id), class:'btn btn-xs btn-info') %>
 		</div>
-		
+
 	<% end %>
 </div>
